@@ -43,10 +43,9 @@ router.post(
   "/",
   multerUploads,
   wrapAsyncHandler(async (req: Request, res) => {
-    console.log("req", req);
+
     const details = req.files && await getDocumentUrl(JSON.parse(JSON.stringify(req.files)))
-    console.log("details", details);
-  
+    
     const data = await create(details);
     return res.json({ data });
   })
