@@ -15,8 +15,8 @@ export = {
         defaultValue: sequelize.UUIDV4
       },
       createdAt: {
-        type: sequelize.DATE,
-        defaultValue: sequelize.fn("NOW")
+        allowNull: false,
+        type: sequelize.DATE
       },
       photos: {
         allowNull: false,

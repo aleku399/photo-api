@@ -44,9 +44,10 @@ router.post(
   multerUploads,
   wrapAsyncHandler(async (req: Request, res) => {
 
-    const details = req.files && await getDocumentUrl(JSON.parse(JSON.stringify(req.files)))
-    
+    const details = req.files && await getDocumentUrl(JSON.parse(JSON.stringify(req.files)));
+
     const data = await create(details);
+
     return res.json({ data });
   })
 );
@@ -68,7 +69,6 @@ async function getDocumentUrl(files: {
     const documentFile: string = dataUri(files.document[0]).content;
     documentUrl = (await cloudinaryConfig(documentFile)) as string;
   }
-
   return {
     photos: documentUrl
   };

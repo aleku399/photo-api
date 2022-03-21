@@ -13,6 +13,8 @@ export interface Photo
 export interface PhotoAttrs {
   photos: string;
   id?: UUID;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export type PhotoAttr = keyof PhotoAttrs;
@@ -34,10 +36,6 @@ export default function (
         type: dataTypes.STRING,
         allowNull: true
       }
-    },
-    {
-      updatedAt: false,
-      createdAt: false
     }
   );
 
